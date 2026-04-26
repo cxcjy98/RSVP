@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张靖阳 & 蒋蕙忆 婚礼邀请函</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --deep-red: #8B0000;
+            --soft-cream: #FFFDF5;
+        }
+        body {
+            font-family: 'Noto+Serif+SC', serif;
+            background-color: var(--soft-cream);
+            color: #333;
+            overflow-x: hidden;
+        }
+        .font-cursive { font-family: 'Ma+Shan+Zheng', cursive; }
+        .font-serif-en { font-family: 'Playfair Display', serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-border {
+            border: 1px solid var(--gold);
+            position: relative;
+        }
+        .card-border::before {
+            content: "";
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            border: 1px solid var(--gold);
+            pointer-events: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="h-screen hero-bg flex items-center justify-center text-center text-white relative px-4">
+        <div class="fade-in">
+            <h2 class="text-2xl md:text-3xl mb-4 font-serif-en italic">Save the Date</h2>
+            <div class="mb-6">
+                <span class="text-5xl md:text-7xl font-cursive block mb-2">张靖阳 & 蒋蕙忆</span>
+                <span class="text-3xl md:text-4xl font-serif-en block">Jing Yang & Hui Ee</span>
+            </div>
+            <div class="h-px w-24 bg-white mx-auto mb-6"></div>
+            <p class="text-xl md:text-2xl tracking-widest">2027 . 01 . 02</p>
+            <p class="mt-2 text-sm opacity-90">SATURDAY | 星期六</p>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Store: M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- Language Switcher -->
+    <div class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 py-3">
+        <div class="max-w-md mx-auto flex justify-center space-x-8">
+            <button onclick="switchLang('cn')" id="btn-cn" class="text-red-800 font-bold border-b-2 border-red-800 pb-1 transition-all">中文</button>
+            <button onclick="switchLang('en')" id="btn-en" class="text-gray-500 hover:text-red-800 transition-all">ENGLISH</button>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        
+        <!-- Chinese Content -->
+        <div id="lang-cn" class="tab-content active text-center space-y-12">
+            <div class="space-y-6">
+                <h3 class="text-3xl font-cursive text-red-800">谨定于</h3>
+                <div class="text-lg leading-loose">
+                    <p class="mb-4 text-gray-600">诚邀您出席我们儿女的婚礼</p>
+                    <div class="flex justify-around items-center py-6">
+                        <div class="text-right">
+                            <p class="text-gray-500 text-sm">男方家长</p>
+                            <p class="text-xl font-bold">张亦善</p>
+                            <p class="text-xl font-bold">王爱朱 <span class="text-base font-normal">夫妇</span></p>
+                        </div>
+                        <div class="text-red-800 text-3xl font-cursive">&</div>
+                        <div class="text-left">
+                            <p class="text-gray-500 text-sm">女方家长</p>
+                            <p class="text-xl font-bold">蒋清顺</p>
+                            <p class="text-xl font-bold">洪燕萍 <span class="text-base font-normal">夫妇</span></p>
+                        </div>
+                    </div>
+                    <p class="mt-8">为其长子 <span class="text-2xl font-cursive text-red-800 px-2">张靖阳</span></p>
+                    <p>与</p>
+                    <p>蒋门长女 <span class="text-2xl font-cursive text-red-800 px-2">蒋蕙忆</span></p>
+                    <p class="mt-4">举行结婚典礼 敬备喜酌 恭候光临</p>
+                </div>
+            </div>
+
+            <div class="card-border p-8 bg-white shadow-sm rounded-lg">
+                <h4 class="text-xl font-bold text-red-800 mb-6 border-b pb-2">时间与地点</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-red-800 mt-1">📅</span>
+                            <div>
+                                <p class="font-bold">2027年1月2日</p>
+                                <p class="text-sm text-gray-500">农历：丙午年十一月廿五日</p>
+                                <p class="text-sm text-gray-500">星期六</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-red-800 mt-1">📍</span>
+                            <div>
+                                <p class="font-bold">槟城李氏宗祠礼堂 (Lee Kongsi)</p>
+                                <p class="text-sm text-gray-600">182, Jalan Burma, 10050 George Town, Pulau Pinang, Malaysia</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-2 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-8">
+                        <p class="font-bold mb-2">流程安排</p>
+                        <div class="flex justify-between"><span>敬茶仪式</span><span>17:30</span></div>
+                        <div class="flex justify-between text-gray-600"><span>鸡尾酒会</span><span>18:00</span></div>
+                        <div class="flex justify-between text-red-800 font-bold"><span>喜宴入席</span><span>19:30</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- English Content -->
+        <div id="lang-en" class="tab-content text-center space-y-12">
+            <div class="space-y-6">
+                <h3 class="text-3xl font-serif-en italic text-red-800">Wedding Invitation</h3>
+                <div class="text-lg leading-relaxed font-serif-en">
+                    <p class="text-gray-600 mb-6 italic">Together with their families</p>
+                    <div class="space-y-1 mb-8">
+                        <p class="text-xl font-bold uppercase tracking-wider">Mr. & Mrs. Chong Yet Sen</p>
+                        <p class="text-xl font-bold uppercase tracking-wider">and Ong Ai Choo</p>
+                        <p class="text-sm text-gray-500 pt-2 italic">request the honour of your presence at the marriage of their son</p>
+                        <p class="text-3xl text-red-800 py-4">Chong Jing Yang</p>
+                    </div>
+                    <p class="italic">to</p>
+                    <div class="space-y-1 mt-8">
+                        <p class="text-sm text-gray-500 pb-2 italic">the daughter of</p>
+                        <p class="text-xl font-bold uppercase tracking-wider">Mr. & Mrs. Chiang Cheng Soon</p>
+                        <p class="text-xl font-bold uppercase tracking-wider">and Ang Yean Peng</p>
+                        <p class="text-3xl text-red-800 py-4">Chiang Hui Ee</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-border p-8 bg-white shadow-sm rounded-lg">
+                <h4 class="text-xl font-serif-en font-bold text-red-800 mb-6 border-b pb-2 uppercase tracking-widest">Date & Venue</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left font-serif-en">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-red-800 mt-1">📅</span>
+                            <div>
+                                <p class="font-bold">Saturday, 2nd January 2027</p>
+                                <p class="text-sm text-gray-500">Lunar: 25th day of 11th Month, Year 2026</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-red-800 mt-1">📍</span>
+                            <div>
+                                <p class="font-bold">Penang Lee Sih Chong Soo (Lee Kongsi)</p>
+                                <p class="text-sm text-gray-600 italic">182, Jalan Burma, 10050 George Town, Pulau Pinang</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-2 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-8">
+                        <p class="font-bold mb-2 uppercase text-xs tracking-widest">Programme</p>
+                        <div class="flex justify-between"><span>Tea Ceremony</span><span>5:30 PM</span></div>
+                        <div class="flex justify-between text-gray-600"><span>Cocktail Reception</span><span>6:00 PM</span></div>
+                        <div class="flex justify-between text-red-800 font-bold"><span>Wedding Banquet</span><span>7:30 PM</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Map Mockup/Link -->
+        <div class="mt-12 text-center">
+            <a href="https://www.google.com/maps/search/?api=1&query=Lee+Kongsi+Penang+182+Jalan+Burma" target="_blank" class="inline-flex items-center px-8 py-3 bg-red-800 text-white rounded-full hover:bg-red-700 transition-colors shadow-lg">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                查看地图 | View on Maps
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="bg-red-900 text-white/70 py-12 text-center mt-20">
+        <p class="font-cursive text-2xl text-white mb-2">百年好合 永结同心</p>
+        <p class="text-sm tracking-widest">Blessings and Love Always</p>
+        <div class="mt-8 flex justify-center space-x-4">
+            <div class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center italic font-serif-en">Z</div>
+            <div class="w-10 h-10 border border-white/30 rounded-full flex items-center justify-center italic font-serif-en">J</div>
+        </div>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            const cnContent = document.getElementById('lang-cn');
+            const enContent = document.getElementById('lang-en');
+            const btnCn = document.getElementById('btn-cn');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'cn') {
+                cnContent.classList.add('active');
+                enContent.classList.remove('active');
+                btnCn.classList.add('text-red-800', 'font-bold', 'border-b-2', 'border-red-800');
+                btnCn.classList.remove('text-gray-500');
+                btnEn.classList.add('text-gray-500');
+                btnEn.classList.remove('text-red-800', 'font-bold', 'border-b-2', 'border-red-800');
+            } else {
+                enContent.classList.add('active');
+                cnContent.classList.remove('active');
+                btnEn.classList.add('text-red-800', 'font-bold', 'border-b-2', 'border-red-800');
+                btnEn.classList.remove('text-gray-500');
+                btnCn.classList.add('text-gray-500');
+                btnCn.classList.remove('text-red-800', 'font-bold', 'border-b-2', 'border-red-800');
+            }
+        }
+        
+        // Simple reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-border').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
