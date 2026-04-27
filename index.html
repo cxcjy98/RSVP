@@ -60,7 +60,6 @@
         }
         .nav-link:hover { color: var(--gold); }
 
-        /* General Section */
         .section-padding {
             padding: 80px 20px;
             max-width: 1200px;
@@ -90,7 +89,7 @@
             transform: translateY(-2px);
         }
 
-        /* Countdown Style */
+        /* Countdown */
         .countdown-container {
             display: flex;
             justify-content: center;
@@ -117,7 +116,7 @@
             opacity: 0.7;
         }
 
-        /* Form Style */
+        /* Form */
         .input-minimal {
             border: none;
             border-bottom: 1px solid #ddd;
@@ -147,85 +146,36 @@
             border-color: var(--text-dark);
         }
 
-        /* Side Photo Decoration Styles */
-        .decor-photo {
-            position: absolute;
+        /* Parents Vertical Text */
+        .vertical-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            letter-spacing: 0.1em;
+        }
+
+        /* Photo Styles within Layout */
+        .layout-photo {
             object-fit: cover; 
-            pointer-events: none;
-            z-index: 5;
-            opacity: 1;
-            transition: all 0.5s ease;
-            filter: drop-shadow(0 8px 15px rgba(0,0,0,0.08));
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));
             border-radius: 4px;
-            border: none;
-            background: transparent;
+            transition: transform 0.3s;
         }
+        .layout-photo:hover { transform: scale(1.02); }
 
-        /* Mobile Adjustments (Default) - Photos moved down slightly */
-        .decor-left { 
-            top: 55%; /* Moved down from 50% */
-            transform: translateY(-50%);
-            left: -65px; 
-            width: 70px;
-            height: 95px;
+        /* Floral Decoration Motif */
+        .floral-motif {
+            color: var(--gold);
+            opacity: 0.5;
+            margin: 10px auto 30px auto;
+            max-width: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .decor-right { 
-            top: 47%; /* Moved down from 42% */
-            transform: translateY(-50%);
-            right: -65px; 
-            width: 76px; /* 70 * 1.09 */
-            height: 95px; 
-        }
-        
-        /* Tablet Adjustments */
-        @media (min-width: 768px) {
-            .decor-left { 
-                width: 180px; 
-                height: 250px; 
-                left: -200px;
-                top: 55%;
-            }
-            .decor-right { 
-                width: 196px; 
-                height: 250px; 
-                right: -200px;
-                top: 47%;
-            }
-            .countdown-value { font-size: 1.5rem; }
-            .countdown-item { min-width: 60px; }
-        }
-        
-        /* Desktop Adjustments */
-        @media (min-width: 1024px) {
-            .decor-left { 
-                width: 240px; 
-                height: 330px; 
-                left: -280px;
-                top: 55%;
-            }
-            .decor-right { 
-                width: 262px; 
-                height: 330px; 
-                right: -280px;
-                top: 47%;
-            }
-        }
-
-        /* Row anchor fixed to ensure centering */
-        .row-anchor {
-            position: relative;
-            display: inline-block;
-            width: auto;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .eng-row-anchor {
-            position: relative;
+        .floral-motif svg {
             width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
+            height: auto;
         }
 
         /* Music Toggle Button */
@@ -246,33 +196,14 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
-
-        .music-btn.playing {
-            animation: rotateMusic 4s linear infinite;
-        }
-
-        @keyframes rotateMusic {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .music-icon {
-            fill: var(--gold);
-            width: 20px;
-            height: 20px;
-        }
-
-        .vertical-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-            letter-spacing: 0.1em;
-        }
+        .music-btn.playing { animation: rotateMusic 4s linear infinite; }
+        @keyframes rotateMusic { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .music-icon { fill: var(--gold); width: 20px; height: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- 音乐控制 -->
+    <!-- 背景音乐 -->
     <audio id="bg-music" loop>
         <source src="https://raw.githubusercontent.com/cxcjy98/RSVP/main/song.mp3" type="audio/mpeg">
     </audio>
@@ -284,7 +215,7 @@
 
     <!-- 第一部分：Hero Section -->
     <section class="hero-section">
-        <div class="fade-in px-4">
+        <div class="px-4">
             <p class="uppercase tracking-[0.6em] text-[10px] md:text-xs mb-6 md:mb-8 opacity-80">我们结婚了 | Save the Date</p>
             <h1 class="text-4xl md:text-7xl font-light mb-4 tracking-tight">张靖阳 & 蒋蕙忆</h1>
             <p class="text-md md:text-2xl opacity-90 mt-4 tracking-widest font-light">Jing Yang & Hui Ee</p>
@@ -295,27 +226,14 @@
             </div>
 
             <div class="countdown-container">
-                <div class="countdown-item">
-                    <span id="days" class="countdown-value">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="hours" class="countdown-value">00</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="minutes" class="countdown-value">00</span>
-                    <span class="countdown-label">Mins</span>
-                </div>
-                <div class="countdown-item">
-                    <span id="seconds" class="countdown-value">00</span>
-                    <span class="countdown-label">Secs</span>
-                </div>
+                <div class="countdown-item"><span id="days" class="countdown-value">00</span><span class="countdown-label">Days</span></div>
+                <div class="countdown-item"><span id="hours" class="countdown-value">00</span><span class="countdown-label">Hours</span></div>
+                <div class="countdown-item"><span id="minutes" class="countdown-value">00</span><span class="countdown-label">Mins</span></div>
+                <div class="countdown-item"><span id="seconds" class="countdown-value">00</span><span class="countdown-label">Secs</span></div>
             </div>
         </div>
     </section>
 
-    <!-- 导航栏 -->
     <nav class="nav-sticky hidden md:block">
         <div class="max-w-5xl mx-auto flex justify-center space-x-12 py-6">
             <a href="#" class="nav-link">首页 Home</a>
@@ -327,107 +245,128 @@
 
     <main>
         <!-- 第二部分：诚挚邀请 -->
-        <section id="invitation" class="section-padding relative overflow-visible min-h-[600px] flex items-center">
-            
-            <div class="relative z-10 w-full text-center space-y-12 md:space-y-16">
-                <!-- 中文内容 (保持不变) -->
-                <div class="space-y-10 md:space-y-12">
-                    <p class="text-sm uppercase tracking-[0.3em] text-gold font-bold">诚挚邀请</p>
-                    
-                    <div class="flex flex-col md:flex-row justify-center items-center md:items-start md:space-x-32 space-y-10 md:space-y-0 border-y border-gray-100 py-10 md:py-12">
-                        <!-- 男方家长 -->
-                        <div class="flex flex-col items-center">
-                            <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest mb-4 md:mb-6 font-bold">男方家长</p>
-                            <div class="flex items-center space-x-3">
-                                <div class="flex space-x-3">
-                                    <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
-                                        <span>张</span><span>亦</span><span>善</span>
-                                    </div>
-                                    <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
-                                        <span>王</span><span>爱</span><span>朱</span>
-                                    </div>
-                                </div>
-                                <div class="text-md text-gray-400 italic font-bold">夫妇</div>
-                            </div>
-                        </div>
+        <section id="invitation" class="section-padding">
+            <div class="text-center mb-16">
+                <p class="text-sm uppercase tracking-[0.3em] text-gold font-bold">诚挚邀请</p>
+            </div>
 
-                        <!-- 女方家长 -->
-                        <div class="flex flex-col items-center">
-                            <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest mb-4 md:mb-6 font-bold">女方家长</p>
-                            <div class="flex items-center space-x-3">
-                                <div class="flex space-x-3">
-                                    <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
-                                        <span>蒋</span><span>清</span><span>顺</span>
-                                    </div>
-                                    <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
-                                        <span>洪</span><span>燕</span><span>萍</span>
-                                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-center">
+                
+                <!-- 左侧：家长信息 -->
+                <div class="md:col-span-3 flex flex-col space-y-16 items-center md:items-end pr-0 md:pr-10">
+                    <div class="flex flex-col items-center md:items-end">
+                        <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest mb-4 font-bold">男方家长</p>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex space-x-3">
+                                <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
+                                    <span>张</span><span>亦</span><span>善</span>
                                 </div>
-                                <div class="text-md text-gray-400 italic font-bold">夫妇</div>
+                                <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
+                                    <span>王</span><span>爱</span><span>朱</span>
+                                </div>
                             </div>
+                            <div class="text-md text-gray-400 italic font-bold">夫妇</div>
                         </div>
                     </div>
-
-                    <div class="space-y-6 text-md md:text-lg">
-                        <div class="row-anchor">
-                            <!-- 左侧照片 -->
-                            <img src="https://raw.githubusercontent.com/cxcjy98/RSVP/main/jy.png" alt="Left" class="decor-photo decor-left">
-                            
-                            <p>为其长子 <span class="text-2xl md:text-3xl font-bold px-2">张靖阳</span></p>
-                            
-                            <!-- 右侧照片 -->
-                            <img src="https://raw.githubusercontent.com/cxcjy98/RSVP/main/Celine_v2.png" alt="Right" class="decor-photo decor-right">
+                    <div class="flex flex-col items-center md:items-end">
+                        <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest mb-4 font-bold">女方家长</p>
+                        <div class="flex items-center space-x-3">
+                            <div class="flex space-x-3">
+                                <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
+                                    <span>蒋</span><span>清</span><span>顺</span>
+                                </div>
+                                <div class="vertical-text text-xl md:text-2xl font-bold text-gray-800">
+                                    <span>洪</span><span>燕</span><span>萍</span>
+                                </div>
+                            </div>
+                            <div class="text-md text-gray-400 italic font-bold">夫妇</div>
                         </div>
-
-                        <p class="text-gold font-bold text-xl md:text-2xl">与</p>
-                        <p>蒋门长女 <span class="text-2xl md:text-3xl font-bold px-2">蒋蕙忆</span></p>
-                        <p class="pt-6 md:pt-8 text-gray-500 tracking-widest">举行结婚典礼 敬备喜酌 恭候光临</p>
                     </div>
                 </div>
 
-                <div class="line-divider"></div>
+                <!-- 中间：核心邀请文字 -->
+                <div class="md:col-span-6 text-center space-y-10 py-10 md:border-x border-gray-100 px-4">
+                    <div class="space-y-6">
+                        <p class="text-lg md:text-xl">为其长子 <span class="text-3xl md:text-4xl font-bold block mt-2">张靖阳</span></p>
+                        <p class="text-gold font-bold text-2xl">与</p>
+                        <p class="text-lg md:text-xl">蒋门长女 <span class="text-3xl md:text-4xl font-bold block mt-2">蒋蕙忆</span></p>
+                    </div>
+                    <p class="pt-8 text-gray-500 tracking-widest text-sm md:text-md leading-relaxed">举行结婚典礼 敬备喜酌 恭候光临</p>
+                </div>
 
-                <!-- 英文内容 -->
-                <div class="space-y-8">
-                    <p class="text-sm uppercase tracking-[0.3em] text-gold font-bold">The Invitation</p>
-                    <p class="text-gray-400 italic text-xs md:text-sm">Together with their families</p>
+                <!-- 右侧：装饰照片 -->
+                <div class="md:col-span-3 flex flex-col space-y-12 items-center md:items-start pl-0 md:pl-10">
+                    <img src="https://raw.githubusercontent.com/cxcjy98/RSVP/main/jy.png" 
+                         alt="Groom Photo" 
+                         class="layout-photo w-[110px] h-[150px] md:w-[150px] md:h-[210px]">
                     
-                    <div class="eng-row-anchor">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24 border-y border-gray-100 py-10 md:py-12 max-w-4xl mx-auto">
-                            <!-- Male -->
-                            <div class="space-y-6 md:space-y-8">
-                                <div class="space-y-2">
-                                    <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest font-bold">Son of</p>
-                                    <p class="text-md md:text-lg font-semibold text-gray-800">Mr. Chong Yet Sen &</p>
-                                    <p class="text-md md:text-lg font-semibold text-gray-800">Mrs. Ong Ai Choo</p>
-                                </div>
-                                <div class="h-px w-8 bg-gold/30 mx-auto"></div>
-                                <h3 class="text-2xl md:text-4xl font-light tracking-tight text-gray-900">Chong Jing Yang</h3>
-                            </div>
+                    <img src="https://raw.githubusercontent.com/cxcjy98/RSVP/main/Celine_v2.png" 
+                         alt="Bride Photo" 
+                         class="layout-photo w-[120px] h-[150px] md:w-[164px] md:h-[210px]">
+                </div>
 
-                            <!-- Female -->
-                            <div class="space-y-6 md:space-y-8 md:border-l border-gray-50">
-                                <div class="space-y-2">
-                                    <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest font-bold">Daughter of</p>
-                                    <p class="text-md md:text-lg font-semibold text-gray-800">Mr. Chiang Cheng Soon &</p>
-                                    <p class="text-md md:text-lg font-semibold text-gray-800">Mrs. Ang Yean Peng</p>
-                                </div>
-                                <div class="h-px w-8 bg-gold/30 mx-auto"></div>
-                                <h3 class="text-2xl md:text-4xl font-light tracking-tight text-gray-900">Chiang Hui Ee</h3>
-                            </div>
-                        </div>
+            </div>
+
+            <div class="line-divider"></div>
+
+            <!-- 英文部分 (已修改为行同步网格，确保名字绝对对齐) -->
+            <div class="space-y-8 text-center mt-16 pb-4">
+                <p class="text-sm uppercase tracking-[0.3em] text-gold font-bold">The Invitation</p>
+                <p class="text-gray-400 italic text-xs md:text-sm">Together with their families</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 border-y border-gray-100 py-12 max-w-4xl mx-auto items-start">
+                    <!-- 第一行：家长称谓 (Son of / Daughter of) -->
+                    <div class="px-4 mb-4 md:mb-6">
+                        <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest font-bold">Son of</p>
+                    </div>
+                    <div class="px-4 mb-4 md:mb-6 md:border-l border-gray-50">
+                        <p class="text-[0.6rem] text-gray-400 uppercase tracking-widest font-bold">Daughter of</p>
                     </div>
 
-                    <p class="pt-6 md:pt-8 text-gray-500 tracking-widest text-xs md:text-sm italic">Request the honour of your presence at the marriage</p>
+                    <!-- 第二行：父母姓名 (这一行现在决定了下方分隔符的高度起点) -->
+                    <div class="px-4 mb-6 md:mb-8">
+                        <p class="text-md md:text-lg font-semibold text-gray-800">Mr. Chong Yet Sen & Mrs. Ong Ai Choo</p>
+                    </div>
+                    <div class="px-4 mb-6 md:mb-8 md:border-l border-gray-50">
+                        <p class="text-md md:text-lg font-semibold text-gray-800">Mr. Chiang Cheng Soon & Mrs. Ang Yean Peng</p>
+                    </div>
+
+                    <!-- 第三行：金色分隔线 -->
+                    <div class="flex justify-center mb-6">
+                        <div class="h-px w-8 bg-gold/30"></div>
+                    </div>
+                    <div class="flex justify-center mb-6 md:border-l border-gray-50">
+                        <div class="h-px w-8 bg-gold/30"></div>
+                    </div>
+
+                    <!-- 第四行：新人名字 (核心要求：必须对齐) -->
+                    <div class="px-4">
+                        <h3 class="text-2xl md:text-4xl font-light tracking-tight text-gray-900">Chong Jing Yang</h3>
+                    </div>
+                    <div class="px-4 md:border-l border-gray-50">
+                        <h3 class="text-2xl md:text-4xl font-light tracking-tight text-gray-900">Chiang Hui Ee</h3>
+                    </div>
+                </div>
+
+                <p class="pt-6 text-gray-500 tracking-widest text-xs md:text-sm italic">Request the honour of your presence at the marriage</p>
+                
+                <div class="floral-motif">
+                    <svg viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M200 20C200 20 195 40 180 50C165 60 140 60 140 60M200 20C200 20 205 40 220 50C235 60 260 60 260 60" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <path d="M200 80C200 80 195 60 180 50C165 40 140 40 140 40M200 80C200 80 205 60 220 50C235 40 260 40 260 40" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                        <circle cx="200" cy="50" r="4" fill="currentColor"/>
+                        <path d="M100 50H160M240 50H300" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 4"/>
+                        <path d="M175 45L185 55M185 45L175 55" stroke="currentColor" stroke-width="1"/>
+                        <path d="M215 45L225 55M225 45L215 55" stroke="currentColor" stroke-width="1"/>
+                    </svg>
                 </div>
             </div>
         </section>
 
-        <!-- 细节部分 -->
+        <!-- 第三部分：细节 -->
         <section id="details" class="bg-white border-y border-gray-100">
-            <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                <!-- 时间与地点 -->
-                <div class="space-y-8 md:space-y-10">
+            <div class="max-w-5xl mx-auto px-6 pt-16 pb-0 md:pt-24 md:pb-0 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <div class="space-y-8">
                     <div class="space-y-4">
                         <h4 class="text-xs font-bold uppercase tracking-[0.4em] text-gold">时间与地点 When & Where</h4>
                         <div class="space-y-1">
@@ -440,16 +379,15 @@
                         <p class="text-lg md:text-xl font-semibold text-gray-800">槟城李氏宗祠礼堂</p>
                         <p class="text-gray-500 italic text-xs md:text-sm">Penang Lee Sih Chong Soo (Lee Kongsi)</p>
                         <p class="text-sm text-gray-400 mt-4 leading-relaxed">182, Jalan Burma, 10050 George Town, Pulau Pinang, Malaysia</p>
-                        <div class="pt-6">
+                        <div class="pt-6 pb-4">
                             <a href="https://www.google.com/maps/search/?api=1&query=Lee+Kongsi+Penang+182+Jalan+Burma" target="_blank" class="text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-widest border-b border-gray-300 pb-1 hover:border-gold transition-all">查看地图 | View on Google Maps</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 流程安排 -->
-                <div class="space-y-8 md:space-y-10">
+                <div class="space-y-8">
                     <h4 class="text-xs font-bold uppercase tracking-[0.4em] text-gold">流程安排 Schedule</h4>
-                    <div class="space-y-10 md:space-y-12 border-l-2 border-gray-50 pl-8 md:pl-10 relative">
+                    <div class="space-y-10 border-l-2 border-gray-50 pl-8 relative">
                         <div class="relative">
                             <div class="absolute -left-[33px] md:-left-[47px] top-1.5 w-2 h-2 md:w-3 md:h-3 rounded-full bg-gold"></div>
                             <div class="space-y-1">
@@ -465,60 +403,48 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-[0.6rem] md:text-[0.7rem] text-gray-400 italic pt-6 font-semibold">喜筵准时入席。敬请准时。Dinner will be served.</p>
+                    <p class="text-[0.6rem] md:text-[0.7rem] text-gray-400 italic pt-6 pb-8 font-semibold">喜筵准时入席。敬请准时。Dinner will be served.</p>
                 </div>
             </div>
         </section>
 
-        <!-- RSVP 部分 -->
-        <section id="rsvp" class="section-padding">
+        <!-- 第四部分：RSVP -->
+        <section id="rsvp" class="px-5 pt-0 pb-10 md:pb-16 max-w-[1200px] mx-auto">
             <div class="bg-white p-8 md:p-20 border border-gray-100 shadow-sm text-center">
                 <h2 class="text-2xl md:text-3xl font-light uppercase tracking-[0.3em] mb-4">出席登记 RSVP</h2>
                 <p class="text-gray-400 text-[0.6rem] md:text-[0.65rem] font-bold uppercase tracking-[0.2em] mb-10 md:mb-12">请于 2026年12月1日前 告知我们 | Kindly respond by 1st December 2026</p>
                 
                 <div id="rsvp-container">
-                    <form id="rsvp-form" class="max-w-md mx-auto space-y-10 md:space-y-12 text-left">
+                    <form id="rsvp-form" class="max-w-md mx-auto space-y-10 text-left">
                         <div class="space-y-4">
                             <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">出席意愿 | Your Attendance</p>
                             <div class="grid grid-cols-2 gap-4 attendance-toggle">
-                                <label>
-                                    <input type="radio" name="attendance" value="YES" checked class="hidden peer">
-                                    <div class="peer-checked:bg-gray-800 peer-checked:text-white">出席 | ATTENDING</div>
-                                </label>
-                                <label>
-                                    <input type="radio" name="attendance" value="NO" class="hidden peer">
-                                    <div class="peer-checked:bg-gray-800 peer-checked:text-white">缺席 | NOT ATTENDING</div>
-                                </label>
+                                <label><input type="radio" name="attendance" value="YES" checked class="hidden peer"><div class="peer-checked:bg-gray-800 peer-checked:text-white">出席 | ATTENDING</div></label>
+                                <label><input type="radio" name="attendance" value="NO" class="hidden peer"><div class="peer-checked:bg-gray-800 peer-checked:text-white">缺席 | NOT ATTENDING</div></label>
                             </div>
                         </div>
 
                         <div class="space-y-4">
-                            <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">您是哪方的宾客？ | Guest of</p>
+                            <p class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">宾客所属 | Guest of</p>
                             <div class="grid grid-cols-2 gap-4 attendance-toggle">
-                                <label>
-                                    <input type="radio" name="side" value="JY" checked class="hidden peer">
-                                    <div class="peer-checked:bg-gray-800 peer-checked:text-white">JY</div>
-                                </label>
-                                <label>
-                                    <input type="radio" name="side" value="Celine" class="hidden peer">
-                                    <div class="peer-checked:bg-gray-800 peer-checked:text-white">Celine</div>
-                                </label>
+                                <label><input type="radio" name="side" value="JY" checked class="hidden peer"><div class="peer-checked:bg-gray-800 peer-checked:text-white">JY</div></label>
+                                <label><input type="radio" name="side" value="Celine" class="hidden peer"><div class="peer-checked:bg-gray-800 peer-checked:text-white">Celine</div></label>
                             </div>
                         </div>
 
                         <div class="space-y-1">
-                            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">姓名 | Full Name</label>
+                            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">姓名 | Full Name (必填/Mandatory)</label>
                             <input type="text" id="guest_name" required class="input-minimal" placeholder="请输入您的姓名">
                         </div>
 
                         <div class="space-y-1">
-                            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">联系电话 | Contact Number</label>
+                            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">联系电话 | Contact Number (必填/Mandatory)</label>
                             <input type="tel" id="guest_phone" required class="input-minimal" placeholder="请输入您的电话号码" pattern="[0-9]*" inputmode="numeric">
                         </div>
 
                         <div id="count-group" class="space-y-1">
-                            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">人数 | Number of Guests</label>
-                            <input type="number" id="guest_count" min="1" value="1" class="input-minimal">
+                            <label class="text-[0.65rem] font-bold uppercase tracking-widest text-gray-400">人数 | Number of Guests (Max 99)</label>
+                            <input type="number" id="guest_count" min="1" max="99" value="1" class="input-minimal">
                         </div>
 
                         <button type="submit" id="submit-btn" class="btn-primary w-full mt-6">提交回复 Submit Response</button>
@@ -527,15 +453,15 @@
 
                 <div id="success-msg" class="hidden py-16 space-y-4">
                     <p class="text-xl md:text-2xl font-light italic">感谢您的回复！</p>
-                    <p class="text-gray-400 text-sm">期待与您在婚礼相见。Thank you for your response!</p>
+                    <p class="text-gray-400 text-sm">期待与您在婚礼相见。Thank you!</p>
                     <div class="line-divider"></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-20 md:py-24 text-center border-t border-gray-100 opacity-60">
-        <p class="font-cursive text-7xl md:text-9xl text-red-900 mb-8 md:mb-12 select-none">囍</p>
+    <footer class="py-20 text-center border-t border-gray-100 opacity-60">
+        <p class="font-cursive text-[120px] md:text-[200px] text-red-900 mb-4 select-none leading-none">囍</p>
         <p class="text-3xl md:text-4xl font-light italic mb-6">Jing Yang & Hui Ee</p>
         <p class="text-[0.6rem] uppercase tracking-[0.5em] text-gray-400">百年好合 永结同心 | Blessings and Love Always</p>
     </footer>
@@ -545,7 +471,7 @@
         const ENTRY_IDS = {
             attendance: "entry.1472850238", 
             name: "entry.1314366476",    
-            phone: "entry.794766803", // 请在此替换为您联系电话问题的 entry ID
+            phone: "entry.794766803", 
             count: "entry.1574037825",
             side: "entry.372515822" 
         };
@@ -554,24 +480,15 @@
         const musicBtn = document.getElementById('music-toggle');
         music.volume = 0.3;
 
-        const toggleMusic = () => {
-            if (music.paused) {
-                music.play().then(() => musicBtn.classList.add('playing')).catch(() => {});
-            } else {
-                music.pause();
-                musicBtn.classList.remove('playing');
-            }
+        musicBtn.onclick = () => {
+            if (music.paused) { music.play(); musicBtn.classList.add('playing'); }
+            else { music.pause(); musicBtn.classList.remove('playing'); }
         };
-
-        musicBtn.onclick = toggleMusic;
 
         window.addEventListener('DOMContentLoaded', () => {
             music.play().then(() => musicBtn.classList.add('playing')).catch(() => {
                 document.addEventListener('click', () => {
-                    if (music.paused) {
-                        music.play();
-                        musicBtn.classList.add('playing');
-                    }
+                    if (music.paused) { music.play(); musicBtn.classList.add('playing'); }
                 }, { once: true });
             });
         });
@@ -580,10 +497,7 @@
         const updateCountdown = () => {
             const now = new Date().getTime();
             const distance = targetDate - now;
-            if (distance < 0) {
-                document.querySelector(".countdown-container").innerHTML = "<p class='font-light italic tracking-widest'>Today is the Day!</p>";
-                return;
-            }
+            if (distance < 0) return;
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -599,15 +513,12 @@
         const form = document.getElementById('rsvp-form');
         const countGroup = document.getElementById('count-group');
         form.addEventListener('change', (e) => {
-            if (e.target.name === 'attendance') {
-                countGroup.style.display = e.target.value === 'YES' ? 'block' : 'none';
-            }
+            if (e.target.name === 'attendance') countGroup.style.display = e.target.value === 'YES' ? 'block' : 'none';
         });
         form.onsubmit = async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submit-btn');
-            btn.disabled = true;
-            btn.innerText = "提交中 SENDING...";
+            btn.disabled = true; btn.innerText = "提交中 SENDING...";
             const formData = new FormData();
             formData.append(ENTRY_IDS.attendance, form.querySelector('input[name="attendance"]:checked').value); 
             formData.append(ENTRY_IDS.side, form.querySelector('input[name="side"]:checked').value); 
@@ -618,10 +529,7 @@
                 await fetch(GOOGLE_FORM_URL, { method: 'POST', mode: 'no-cors', body: formData });
                 document.getElementById('rsvp-container').classList.add('hidden');
                 document.getElementById('success-msg').classList.remove('hidden');
-            } catch (err) {
-                btn.disabled = false;
-                btn.innerText = "提交回复 SUBMIT RESPONSE";
-            }
+            } catch (err) { btn.disabled = false; btn.innerText = "提交回复 SUBMIT RESPONSE"; }
         };
     </script>
 </body>
